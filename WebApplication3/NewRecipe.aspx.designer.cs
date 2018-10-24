@@ -31,39 +31,39 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.LinkButton btnRecipePage;
         
         /// <summary>
-        /// name control.
+        /// nameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox name;
+        protected global::System.Web.UI.WebControls.TextBox nameTextBox;
         
         /// <summary>
-        /// ingredients control.
+        /// ingredientsTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ingredients;
+        protected global::System.Web.UI.WebControls.TextBox ingredientsTextBox;
         
         /// <summary>
-        /// instructions control.
+        /// instructionsTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox instructions;
+        protected global::System.Web.UI.WebControls.TextBox instructionsTextBox;
         
         /// <summary>
-        /// btnSave control.
+        /// saveButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox btnSave;
+        protected global::System.Web.UI.WebControls.Button saveButton;
     }
 }

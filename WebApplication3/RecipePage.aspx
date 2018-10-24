@@ -19,6 +19,16 @@
         <div>
             <asp:LinkButton runat="server" CssClass="btm btn-success" ID="addRecipe" Text="New Recipe"  OnClick="AddRecipe_Click"/>
         </div>
+        <p>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="RecipeDataSource">
+                <Columns>
+                    <asp:BoundField DataField="RecipeName" HeaderText="Recipe Name" SortExpression="RecipeName" />
+                    <asp:BoundField DataField="Instructions" HeaderText="Instructions" SortExpression="Instructions" />
+                    <asp:BoundField DataField="Ingredients" HeaderText="Ingredients" SortExpression="Ingredients" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="RecipeDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:RecipeConnectionString %>" SelectCommand="SELECT [RecipeName], [Instructions], [Ingredients] FROM [Recipes] ORDER BY [RecipeName]"></asp:SqlDataSource>
+        </p>
     </form>
 </body>
 </html>
