@@ -23,7 +23,7 @@ namespace WebApplication3
         {
             UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
 
-            RecipeDatabaseEntities dbcon = new RecipeDatabaseEntities();
+            CookbookDatabaseEntities dbcon = new CookbookDatabaseEntities();
 
             if (IsPostBack)
             {
@@ -33,15 +33,14 @@ namespace WebApplication3
                     string recipeName = nameTextBox.Text;
                     string ingredients = ingredientsTextBox.Text;
                     string instructions = instructionsTextBox.Text;
-                    
-                
-                    Recipe newRecipe = new Recipe();
+                   
+                    CookbookRecipe newRecipe = new CookbookRecipe();
                     newRecipe.RecipeId = (int)DateTime.Now.ToFileTime();
                     newRecipe.RecipeName = recipeName;
                     newRecipe.Ingredients = ingredients;
                     newRecipe.Instructions = instructions;
 
-                    dbcon.Recipes.Add(newRecipe);
+                    dbcon.CookbookRecipes.Add(newRecipe);
                     dbcon.SaveChanges();
 
                     Response.Redirect("RecipePage.aspx");
