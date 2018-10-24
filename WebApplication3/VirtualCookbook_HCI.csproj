@@ -44,20 +44,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -114,21 +106,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="App_Data\RecipeDatabase.mdf" />
-    <Content Include="App_Data\RecipeDatabase_log.ldf">
-      <DependentUpon>RecipeDatabase.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\UserDatabase.mdf" />
-    <Content Include="App_Data\UserDatabase_log.ldf">
-      <DependentUpon>UserDatabase.mdf</DependentUpon>
-    </Content>
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="CreateAccount.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -141,27 +124,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="RecipeModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>RecipeModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Home.aspx" />
-    <Content Include="Login.aspx" />
-    <Content Include="RecipeModel.edmx.diagram">
-      <DependentUpon>RecipeModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="NewRecipe.aspx" />
-    <Content Include="RecipeModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>RecipeModel.edmx</DependentUpon>
-      <LastGenOutput>RecipeModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="RecipeModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>RecipeModel.edmx</DependentUpon>
-      <LastGenOutput>RecipeModel.cs</LastGenOutput>
-    </Content>
     <Content Include="RecipePage.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -192,16 +156,6 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="UserModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>UserModel.Context.cs</LastGenOutput>
-      <DependentUpon>UserModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="UserModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UserModel.edmx</DependentUpon>
-      <LastGenOutput>UserModel.cs</LastGenOutput>
-    </Content>
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -224,13 +178,6 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CreateAccount.aspx.cs">
-      <DependentUpon>CreateAccount.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CreateAccount.aspx.designer.cs">
-      <DependentUpon>CreateAccount.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -241,20 +188,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
     <Compile Include="NewRecipe.aspx.cs">
       <DependentUpon>NewRecipe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -263,24 +196,6 @@
       <DependentUpon>NewRecipe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recipe.cs">
-      <DependentUpon>RecipeModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RecipeModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RecipeModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RecipeModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RecipeModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RecipeModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RecipeModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="RecipePage.aspx.cs">
       <DependentUpon>RecipePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -302,24 +217,6 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
-      <DependentUpon>UserModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="UserModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="UserModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="UserModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -329,19 +226,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-    <EntityDeploy Include="UserModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UserModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="UserModel.edmx.diagram">
-      <DependentUpon>UserModel.edmx</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
