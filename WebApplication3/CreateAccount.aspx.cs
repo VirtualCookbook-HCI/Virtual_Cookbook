@@ -25,7 +25,7 @@ namespace WebApplication3
         {
             UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
 
-            UserDatabaseEntities dbcon = new UserDatabaseEntities();
+            CookbookDatabaseEntities dbcon = new CookbookDatabaseEntities();
 
             if (IsPostBack)
             {
@@ -38,13 +38,15 @@ namespace WebApplication3
 
                     Label1.Text = "test";
 
-                    User newUser = new User();
+                    CookbookUser newUser = new CookbookUser();
+
+                    //User newUser = new User();
                     newUser.UserId = (int) DateTime.Now.ToFileTime();
                     newUser.Email = email;
                     newUser.Username = username;
                     newUser.Password = password;
 
-                    dbcon.Users.Add(newUser);
+                    dbcon.CookbookUsers.Add(newUser);
                     dbcon.SaveChanges();
 
                     Response.Redirect("RecipePage.aspx");

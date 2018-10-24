@@ -18,7 +18,7 @@ namespace WebApplication3
         {
             UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
 
-            UserDatabaseEntities dbcon = new UserDatabaseEntities();
+            CookbookDatabaseEntities dbcon = new CookbookDatabaseEntities();
 
             if (IsPostBack)
             {
@@ -27,6 +27,8 @@ namespace WebApplication3
                 {
                     string username = usernameTextBox.Text;
                     string password = passwordTextBox.Text;
+
+                    dbcon.CookbookUsers.SqlQuery($"SELECT * FROM CookbookUsers WHERE Username = {username} AND Password = {password}");
 
                     dbcon.SaveChanges();
                     Response.Redirect("RecipePage.aspx");
