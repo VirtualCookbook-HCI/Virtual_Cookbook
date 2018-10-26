@@ -15,18 +15,18 @@
             <asp:TextBox ID="emailTextBox" runat="server"></asp:TextBox>
         </p>
         <p>
-            User name:
-            <asp:TextBox ID="usernameTextBox" runat="server"></asp:TextBox>
+            Username: <asp:TextBox ID="usernameTextBox" runat="server"></asp:TextBox>
+            <asp:Label ID="UsernameLabel" runat="server" Text="This Username is already taken." Visible="False"></asp:Label>
         </p>
         <p>
             Password:<asp:TextBox ID="passwordTextBox" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Button ID="createAccountButton" runat="server" OnClick="createAccountButton_Click" Text="Submit" />
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </p>
         <p>
-            &nbsp;</p>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">Already Have an Account, Login Here</asp:HyperLink>
+        </p>
         <p>
             &nbsp;</p>
     </form>

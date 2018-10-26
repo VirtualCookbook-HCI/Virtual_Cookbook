@@ -40,6 +40,15 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.TextBox usernameTextBox;
         
         /// <summary>
+        /// UsernameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UsernameLabel;
+        
+        /// <summary>
         /// passwordTextBox control.
         /// </summary>
         /// <remarks>
@@ -58,12 +67,12 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.Button createAccountButton;
         
         /// <summary>
-        /// Label1 control.
+        /// HyperLink1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
     }
 }

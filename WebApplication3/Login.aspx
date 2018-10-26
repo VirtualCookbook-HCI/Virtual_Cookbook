@@ -11,6 +11,9 @@
         <p>
             Login:</p>
         <p>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/CreateAccount.aspx">Don&#39;t Have an Account, Register Now</asp:HyperLink>
+        </p>
+        <p>
             Username:
             <asp:TextBox ID="usernameTextBox" runat="server"></asp:TextBox>
         </p>
@@ -19,7 +22,10 @@
             <asp:TextBox ID="passwordTextBox" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:Button ID="SubmitButton" runat="server" OnClick="SubmitButton_Click" Text="Submit" />
+            <asp:Button ID="SubmitButton" runat="server" OnClick="SubmitButton_Click" Text="Login" />
+        </p>
+        <p>
+            <asp:Label ID="Label1" runat="server" Text="Invalid Username or Password" Visible="False"></asp:Label>
         </p>
     </form>
 </body>
