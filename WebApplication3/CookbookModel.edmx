@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CookbookDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CookbookDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CookbookRecipes">
           <Key>
             <PropertyRef Name="RecipeId" />
@@ -13,7 +13,6 @@
           <Property Name="RecipeName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Ingredients" Type="varchar" MaxLength="50" />
           <Property Name="Instructions" Type="varchar" MaxLength="50" />
-          <Property Name="UserId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CookbookUsers">
           <Key>
@@ -24,28 +23,11 @@
           <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK_CookbookRecipes_ToCookbookUsers">
-          <End Role="CookbookUsers" Type="Self.CookbookUsers" Multiplicity="1" />
-          <End Role="CookbookRecipes" Type="Self.CookbookRecipes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CookbookUsers">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="CookbookRecipes">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="CookbookDatabaseModelStoreContainer">
           <EntitySet Name="CookbookRecipes" EntityType="Self.CookbookRecipes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CookbookUsers" EntityType="Self.CookbookUsers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_CookbookRecipes_ToCookbookUsers" Association="Self.FK_CookbookRecipes_ToCookbookUsers">
-            <End Role="CookbookUsers" EntitySet="CookbookUsers" />
-            <End Role="CookbookRecipes" EntitySet="CookbookRecipes" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CookbookDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -57,8 +39,6 @@
           <Property Name="RecipeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ingredients" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Instructions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CookbookUser" Relationship="Self.FK_CookbookRecipes_ToCookbookUsers" FromRole="CookbookRecipes" ToRole="CookbookUsers" />
         </EntityType>
         <EntityType Name="CookbookUser">
           <Key>
@@ -68,27 +48,10 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CookbookRecipes" Relationship="Self.FK_CookbookRecipes_ToCookbookUsers" FromRole="CookbookUsers" ToRole="CookbookRecipes" />
         </EntityType>
-        <Association Name="FK_CookbookRecipes_ToCookbookUsers">
-          <End Role="CookbookUsers" Type="Self.CookbookUser" Multiplicity="1" />
-          <End Role="CookbookRecipes" Type="Self.CookbookRecipe" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CookbookUsers">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="CookbookRecipes">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="CookbookDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CookbookRecipes" EntityType="Self.CookbookRecipe" />
           <EntitySet Name="CookbookUsers" EntityType="Self.CookbookUser" />
-          <AssociationSet Name="FK_CookbookRecipes_ToCookbookUsers" Association="Self.FK_CookbookRecipes_ToCookbookUsers">
-            <End Role="CookbookUsers" EntitySet="CookbookUsers" />
-            <End Role="CookbookRecipes" EntitySet="CookbookRecipes" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -103,7 +66,6 @@
                 <ScalarProperty Name="RecipeName" ColumnName="RecipeName" />
                 <ScalarProperty Name="Ingredients" ColumnName="Ingredients" />
                 <ScalarProperty Name="Instructions" ColumnName="Instructions" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

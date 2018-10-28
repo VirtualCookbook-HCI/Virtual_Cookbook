@@ -18,5 +18,10 @@ namespace WebApplication3
             Response.Redirect("NewRecipe.aspx");
         
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
