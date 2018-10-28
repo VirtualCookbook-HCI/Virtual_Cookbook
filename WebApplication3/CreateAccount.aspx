@@ -19,7 +19,7 @@
             <asp:Label ID="UsernameLabel" runat="server" Text="This Username is already taken." Visible="False"></asp:Label>
         </p>
         <p>
-            Password:<asp:TextBox ID="passwordTextBox" runat="server"></asp:TextBox>
+            Password:<asp:TextBox ID="passwordTextBox" TextMode="Password" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Button ID="createAccountButton" runat="server" OnClick="createAccountButton_Click" Text="Submit" />

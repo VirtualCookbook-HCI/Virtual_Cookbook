@@ -19,7 +19,7 @@
         </p>
         <p>
             Password:
-            <asp:TextBox ID="passwordTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox ID="passwordTextBox" TextMode="Password" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Button ID="SubmitButton" runat="server" OnClick="SubmitButton_Click" Text="Login" />
