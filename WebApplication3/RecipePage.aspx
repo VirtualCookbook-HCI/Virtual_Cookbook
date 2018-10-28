@@ -18,6 +18,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:LinkButton runat="server" CssClass="btm btn-success" ID="addRecipe" Text="New Recipe"  OnClick="AddRecipe_Click"/>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" />
         </div>
         <p>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource">

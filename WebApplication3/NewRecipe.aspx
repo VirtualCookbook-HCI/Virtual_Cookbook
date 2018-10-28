@@ -20,6 +20,7 @@
             <div class ="container"></div>
             <div class ="row">
                 <asp:LinkButton runat="server" CssClass="btn btn-default" ID="btnRecipePage" Text="Recipe Page" OnClick="btnRecipePage_Click" />
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" />
             </div>
             <asp:Label runat="server" Text="Name" />
             <asp:TextBox runat="server" ID="nameTextBox" />
