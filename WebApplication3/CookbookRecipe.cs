@@ -18,5 +18,8 @@ namespace WebApplication3
         public string RecipeName { get; set; }
         public string Ingredients { get; set; }
         public string Instructions { get; set; }
+        public Nullable<int> UserId { get; set; }
+    
+        public virtual CookbookUser CookbookUser { get; set; }
     }
 }
