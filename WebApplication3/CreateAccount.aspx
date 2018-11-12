@@ -39,7 +39,7 @@
         <p>
             Password:</p>
         <p>
-            <asp:TextBox ID="passwordTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox ID="passwordTextBox" TextMode="Password" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Button ID="createAccountButton" runat="server" OnClick="createAccountButton_Click" Text="Submit" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Large" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri"/>
