@@ -14,6 +14,12 @@ namespace WebApplication3
     
     public partial class CookbookRecipe
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CookbookRecipe()
+        {
+            this.CookbookIngredients = new HashSet<CookbookIngredient>();
+        }
+    
         public int RecipeId { get; set; }
         public string RecipeName { get; set; }
         public string Ingredients { get; set; }
@@ -21,5 +27,7 @@ namespace WebApplication3
         public Nullable<int> UserId { get; set; }
     
         public virtual CookbookUser CookbookUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CookbookIngredient> CookbookIngredients { get; set; }
     }
 }

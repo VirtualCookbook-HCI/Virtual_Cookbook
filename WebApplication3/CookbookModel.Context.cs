@@ -27,5 +27,6 @@ namespace WebApplication3
     
         public virtual DbSet<CookbookRecipe> CookbookRecipes { get; set; }
         public virtual DbSet<CookbookUser> CookbookUsers { get; set; }
+        public virtual DbSet<CookbookIngredient> CookbookIngredients { get; set; }
     }
 }

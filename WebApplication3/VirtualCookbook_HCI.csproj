@@ -215,6 +215,9 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CookbookIngredient.cs">
+      <DependentUpon>CookbookModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CookbookModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

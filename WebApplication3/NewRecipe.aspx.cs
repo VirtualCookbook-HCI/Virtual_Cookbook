@@ -13,8 +13,14 @@ namespace WebApplication3
 {
     public partial class NewRecipe : System.Web.UI.Page
     {
+        int recipeId = 0;
+        string[] ingredients = new string[15]; // has a cap of 15 ingredients right now
+        CookbookDatabaseEntities dbcon;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            recipeId = (int)DateTime.Now.ToFileTime();
+            dbcon = new CookbookDatabaseEntities();
 
         }
 
@@ -27,8 +33,6 @@ namespace WebApplication3
         {
             UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
 
-            CookbookDatabaseEntities dbcon = new CookbookDatabaseEntities();
-            //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\camrynroadley\Virtual_Cookbook\WebApplication3\App_Data\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFrameworkata Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Owner\Desktop\cookbook1\Virtual_Cookbook\WebApplication3\App_Data\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFrameworkata Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Owner\Desktop\cookbook1\Virtual_Cookbook\WebApplication3\App_Data\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From CookbookRecipes where RecipeName = '" + nameTextBox.Text + "' and Ingredients = '" + ingredientsTextBox.Text + "'", con);
             DataTable dt = new DataTable();
@@ -47,13 +51,24 @@ namespace WebApplication3
 
                 CookbookRecipe newRecipe = new CookbookRecipe
                 {
-
-                    RecipeId = (int)DateTime.Now.ToFileTime(),
+                    RecipeId = recipeId,
                     RecipeName = recipeName,
-                    Ingredients = ingredients,
+                    Ingredients = ingredients, // might want to get rid of instructions in recipe and just have them in their own database
                     Instructions = instructions,
                     UserId = -1311229662 // hardcoded so that it matches my user id
                 };
+
+                for (int i = 0; i < ingredients.Length; i++)
+                {
+                    CookbookIngredient newIngredient = new CookbookIngredient
+                    {
+                        IngredientId = i,
+                        IngredientName = ingredients[i].ToString(),
+                        RecipeId = recipeId
+                    };
+
+                    dbcon.CookbookIngredients.Add(newIngredient);
+                }
 
                 dbcon.CookbookRecipes.Add(newRecipe);
                 dbcon.SaveChanges();
@@ -84,6 +99,19 @@ namespace WebApplication3
                 }
             }
             */
+        }
+
+        int count = 0;
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string ingredientName = ingredientsTextBox.Text;
+            ingredients[count] = ingredientName;
+            count++;
+
+            //dbcon.CookbookIngredients.Add(newIngredient);
+            //dbcon.SaveChanges();
+
+            ingredientsTextBox.Text = "";
         }
     }
 }

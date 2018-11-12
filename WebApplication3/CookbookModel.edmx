@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="CookbookDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CookbookIngredients">
+          <Key>
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Name="IngredientId" Type="int" Nullable="false" />
+          <Property Name="IngredientName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RecipeId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="CookbookRecipes">
           <Key>
             <PropertyRef Name="RecipeId" />
@@ -24,6 +32,18 @@
           <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_CookbookIngredients_ToTable">
+          <End Role="CookbookRecipes" Type="Self.CookbookRecipes" Multiplicity="1" />
+          <End Role="CookbookIngredients" Type="Self.CookbookIngredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CookbookRecipes">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="CookbookIngredients">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CookbookRecipes_ToTable">
           <End Role="CookbookUsers" Type="Self.CookbookUsers" Multiplicity="0..1" />
           <End Role="CookbookRecipes" Type="Self.CookbookRecipes" Multiplicity="*" />
@@ -37,8 +57,13 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="CookbookDatabaseModelStoreContainer">
+          <EntitySet Name="CookbookIngredients" EntityType="Self.CookbookIngredients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CookbookRecipes" EntityType="Self.CookbookRecipes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CookbookUsers" EntityType="Self.CookbookUsers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CookbookIngredients_ToTable" Association="Self.FK_CookbookIngredients_ToTable">
+            <End Role="CookbookRecipes" EntitySet="CookbookRecipes" />
+            <End Role="CookbookIngredients" EntitySet="CookbookIngredients" />
+          </AssociationSet>
           <AssociationSet Name="FK_CookbookRecipes_ToTable" Association="Self.FK_CookbookRecipes_ToTable">
             <End Role="CookbookUsers" EntitySet="CookbookUsers" />
             <End Role="CookbookRecipes" EntitySet="CookbookRecipes" />
@@ -58,6 +83,7 @@
           <Property Name="Instructions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UserId" Type="Int32" />
           <NavigationProperty Name="CookbookUser" Relationship="CookbookDatabaseModel.FK_CookbookRecipes_ToTable" FromRole="CookbookRecipe" ToRole="CookbookUser" />
+          <NavigationProperty Name="CookbookIngredients" Relationship="CookbookDatabaseModel.FK_CookbookIngredients_ToTable" FromRole="CookbookRecipe" ToRole="CookbookIngredient" />
         </EntityType>
         <EntityType Name="CookbookUser">
           <Key>
@@ -76,6 +102,11 @@
             <End Role="CookbookUser" EntitySet="CookbookUsers" />
             <End Role="CookbookRecipe" EntitySet="CookbookRecipes" />
           </AssociationSet>
+          <EntitySet Name="CookbookIngredients" EntityType="CookbookDatabaseModel.CookbookIngredient" />
+          <AssociationSet Name="FK_CookbookIngredients_ToTable" Association="CookbookDatabaseModel.FK_CookbookIngredients_ToTable">
+            <End Role="CookbookRecipe" EntitySet="CookbookRecipes" />
+            <End Role="CookbookIngredient" EntitySet="CookbookIngredients" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_CookbookRecipes_ToTable">
           <End Type="CookbookDatabaseModel.CookbookUser" Role="CookbookUser" Multiplicity="0..1" />
@@ -86,6 +117,27 @@
             </Principal>
             <Dependent Role="CookbookRecipe">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CookbookIngredient">
+          <Key>
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Name="IngredientId" Type="Int32" Nullable="false" />
+          <Property Name="IngredientName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecipeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CookbookRecipe" Relationship="CookbookDatabaseModel.FK_CookbookIngredients_ToTable" FromRole="CookbookIngredient" ToRole="CookbookRecipe" />
+        </EntityType>
+        <Association Name="FK_CookbookIngredients_ToTable">
+          <End Type="CookbookDatabaseModel.CookbookRecipe" Role="CookbookRecipe" Multiplicity="1" />
+          <End Type="CookbookDatabaseModel.CookbookIngredient" Role="CookbookIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CookbookRecipe">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="CookbookIngredient">
+              <PropertyRef Name="RecipeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -113,6 +165,15 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CookbookIngredients">
+            <EntityTypeMapping TypeName="CookbookDatabaseModel.CookbookIngredient">
+              <MappingFragment StoreEntitySet="CookbookIngredients">
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+                <ScalarProperty Name="IngredientName" ColumnName="IngredientName" />
+                <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

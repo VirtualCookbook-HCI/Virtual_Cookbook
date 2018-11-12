@@ -25,12 +25,15 @@
             <asp:TextBox runat="server" ID="nameTextBox" />
         </div>
         <p>
-            <asp:Label runat="server" Text="Ingredients" />
-            <asp:TextBox runat="server" ID="ingredientsTextBox" Height="153px" Width="210px" />
+            <asp:Label runat="server" Text="Ingredient" />
+            <asp:TextBox runat="server" ID="ingredientsTextBox" Height="34px" Width="210px" />
+            <asp:Button ID="AddIngredientButton" runat="server" OnClick="Button1_Click" Text="Add Another Ingredient" />
             </p>
         <p>
             <asp:Label runat="server" Text="Instructions" />
             <asp:TextBox runat="server" ID="instructionsTextBox" Height="209px" Width="208px" />
+
+            <asp:Button ID="AddInstructionButton" runat="server" Text="Add Another Instruction" />
 
         </p>
         <br />

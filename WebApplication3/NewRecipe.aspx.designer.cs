@@ -49,6 +49,15 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.TextBox ingredientsTextBox;
         
         /// <summary>
+        /// AddIngredientButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddIngredientButton;
+        
+        /// <summary>
         /// instructionsTextBox control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace WebApplication3 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox instructionsTextBox;
+        
+        /// <summary>
+        /// AddInstructionButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddInstructionButton;
         
         /// <summary>
         /// saveButton control.
