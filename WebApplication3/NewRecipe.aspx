@@ -20,20 +20,30 @@
             <div class ="container"></div>
             <div class ="row">
                 <asp:LinkButton runat="server" CssClass="btn btn-default" ID="btnRecipePage" Text="Recipe Page" OnClick="btnRecipePage_Click" />
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" />
             </div>
             <asp:Label runat="server" Text="Name" />
-            <asp:TextBox runat="server" ID="nameTextBox" />
+            &nbsp;<asp:TextBox runat="server" ID="nameTextBox" />
+            <asp:Label ID="NameLabel" runat="server" Text="Label"></asp:Label>
         </div>
         <p>
             <asp:Label runat="server" Text="Ingredients" />
-            <asp:TextBox runat="server" ID="ingredientsTextBox" Height="153px" Width="210px" />
+            &nbsp;<asp:TextBox runat="server" ID="ingredientsTextBox" Height="21px" Width="154px" />
+            &nbsp;&nbsp;&nbsp;
+            <asp:Button ID="IngredientButton" runat="server" OnClick="IngredientButton_Click" Text="Add Another Ingredient" />
+            </p>
+        <p>
+            <asp:Label ID="EnteredIngredientsLabel" runat="server" Text="Label"></asp:Label>
             </p>
         <p>
             <asp:Label runat="server" Text="Instructions" />
-            <asp:TextBox runat="server" ID="instructionsTextBox" Height="209px" Width="208px" />
+            &nbsp;<asp:TextBox runat="server" ID="instructionsTextBox" Height="19px" Width="150px" />
+
+        &nbsp;&nbsp;&nbsp;
+            <asp:Button ID="InstructionButton" runat="server" OnClick="InstructionButton_Click" Text="Add Another Instruction" />
 
         </p>
+        <asp:Label ID="EnteredInstructionsLabel" runat="server" Text="Label"></asp:Label>
+        <br />
         <br />
         <asp:Button ID="saveButton" runat="server" OnClick="saveButton_Click" Text="Save" />
     </form>

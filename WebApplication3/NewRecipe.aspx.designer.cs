@@ -31,15 +31,6 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.LinkButton btnRecipePage;
         
         /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
         /// nameTextBox control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace WebApplication3 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox nameTextBox;
+        
+        /// <summary>
+        /// NameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label NameLabel;
         
         /// <summary>
         /// ingredientsTextBox control.
@@ -58,6 +58,24 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.TextBox ingredientsTextBox;
         
         /// <summary>
+        /// IngredientButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button IngredientButton;
+        
+        /// <summary>
+        /// EnteredIngredientsLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EnteredIngredientsLabel;
+        
+        /// <summary>
         /// instructionsTextBox control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,24 @@ namespace WebApplication3 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox instructionsTextBox;
+        
+        /// <summary>
+        /// InstructionButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button InstructionButton;
+        
+        /// <summary>
+        /// EnteredInstructionsLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EnteredInstructionsLabel;
         
         /// <summary>
         /// saveButton control.

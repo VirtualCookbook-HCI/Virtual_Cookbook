@@ -13,6 +13,9 @@ namespace WebApplication3
 {
     public partial class NewRecipe : System.Web.UI.Page
     {
+        static string ingredients = "";
+        static string instructions = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -30,7 +33,6 @@ namespace WebApplication3
             CookbookDatabaseEntities dbcon = new CookbookDatabaseEntities();
             //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\camrynroadley\Virtual_Cookbook\WebApplication3\App_Data\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFrameworkata Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Owner\Desktop\cookbook1\Virtual_Cookbook\WebApplication3\App_Data\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
-            // paste this code into the line above ^^^^^^ SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From CookbookRecipes where RecipeName = '" + nameTextBox.Text + "' and Ingredients = '" + ingredientsTextBox.Text + "'", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -42,55 +44,59 @@ namespace WebApplication3
             }
             else
             {
-                string recipeName = nameTextBox.Text;
-                string ingredients = ingredientsTextBox.Text;
-                string instructions = instructionsTextBox.Text;
+                string recipeName = "";
 
-                CookbookRecipe newRecipe = new CookbookRecipe
+                // Get remaining ingredients and intructions
+                if(ingredientsTextBox.Text != "")
                 {
+                    ingredients += ingredientsTextBox.Text;
+                }
 
-                    RecipeId = (int)DateTime.Now.ToFileTime(),
-                    RecipeName = recipeName,
-                    Ingredients = ingredients,
-                    Instructions = instructions,
-                    UserId = -1311229662 // hardcoded so that it matches my user id
-                };
-
-                dbcon.CookbookRecipes.Add(newRecipe);
-                dbcon.SaveChanges();
-                Response.Redirect("Recipepage.aspx");
-
-            }
-/*
-            if (IsPostBack)
-            {
-                Validate();
-                if (IsValid)
+                if (instructionsTextBox.Text != "")
                 {
-                    string recipeName = nameTextBox.Text;
-                    string ingredients = ingredientsTextBox.Text;
-                    string instructions = instructionsTextBox.Text;
-                   
-                    CookbookRecipe newRecipe = new CookbookRecipe();
-                    newRecipe.RecipeId = (int)DateTime.Now.ToFileTime();
-                    newRecipe.RecipeName = recipeName;
-                    newRecipe.Ingredients = ingredients;
-                    newRecipe.Instructions = instructions;
+                    instructions += instructionsTextBox.Text;
+                }
 
-                    dbcon.CookbookRecipes.Add(newRecipe);
-                    dbcon.CookbookRecipes.SaveChanges();
-
-                    Response.Redirect("RecipePage.aspx");
+                // Make sure there is a recipe name
+                if (nameTextBox.Text.Equals(""))
+                {
+                    NameLabel.Text = "*Enter a recipe name";
 
                 }
+                else
+                {
+                    recipeName = nameTextBox.Text;
+                    CookbookRecipe newRecipe = new CookbookRecipe
+                    {
+                        RecipeId = (int)DateTime.Now.ToFileTime(),
+                        RecipeName = recipeName,
+                        Ingredients = ingredients,
+                        Instructions = instructions,
+                        UserId = -1311229662 // hardcoded so that it matches my user id
+                    };
+
+                    dbcon.CookbookRecipes.Add(newRecipe);
+                    dbcon.SaveChanges();
+                    Response.Redirect("Recipepage.aspx");
+                }
             }
-            */
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+
+        protected void IngredientButton_Click(object sender, EventArgs e)
         {
-            System.Web.Security.FormsAuthentication.SignOut();
-            Response.Redirect("~/Login.aspx");
+            string ingredient = ingredientsTextBox.Text;
+            ingredients += ingredient + ", ";
+            EnteredIngredientsLabel.Text = ingredients;
+            ingredientsTextBox.Text = "";
+        }
+
+        protected void InstructionButton_Click(object sender, EventArgs e)
+        {
+            string instruction = instructionsTextBox.Text;
+            instructions += instruction + ", ";
+            EnteredInstructionsLabel.Text = instructions;
+            instructionsTextBox.Text = "";
         }
     }
 }
