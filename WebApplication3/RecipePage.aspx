@@ -35,13 +35,8 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [RecipeName], [Ingredients], [Instructions] FROM [CookbookRecipes] ORDER BY [RecipeName]"></asp:SqlDataSource>
         </p>
-        <asp:DetailsView ID="DetailsView1" runat="server" DataSourceID="SqlDataSource" Height="121px" OnPageIndexChanging="DetailsView1_PageIndexChanging" Width="200px" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
-            <EditRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-            <FooterStyle BackColor="#CCCCCC" />
-            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-            <RowStyle BackColor="White" />
-        </asp:DetailsView>
+        <asp:GridView ID="GridView2" runat="server">
+        </asp:GridView>
     </form>
 </body>
 </html>

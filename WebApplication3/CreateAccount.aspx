@@ -26,6 +26,7 @@
             Email:</p>
         <p>
             &nbsp;<asp:TextBox ID="emailTextBox" runat="server" Height="35px" Width="301px"></asp:TextBox>
+            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         </p>
         <p>
             Username:</p>
