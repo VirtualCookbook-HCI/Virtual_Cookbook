@@ -87,6 +87,7 @@ namespace WebApplication3
         {
             string ingredient = ingredientsTextBox.Text;
             ingredients += ingredient + ", ";
+            EnteredIngredientsLabel.Visible = true;
             EnteredIngredientsLabel.Text = ingredients;
             ingredientsTextBox.Text = "";
         }
@@ -95,6 +96,7 @@ namespace WebApplication3
         {
             string instruction = instructionsTextBox.Text;
             instructions += instruction + ", ";
+            EnteredInstructionsLabel.Visible = true;
             EnteredInstructionsLabel.Text = instructions;
             instructionsTextBox.Text = "";
         }

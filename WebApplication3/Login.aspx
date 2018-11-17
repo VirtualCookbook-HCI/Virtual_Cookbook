@@ -6,9 +6,6 @@
 <head runat="server">
     <title></title>
     <style>
-        input[type=text]{
-            font-size:2vw;
-        }
         body {
             background-color: azure;
             width:100vw;
@@ -29,12 +26,12 @@
             Username:
             </p>
         <p>
-            <asp:TextBox ID="usernameTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox ID="usernameTextBox" runat="server" Height="35px" Width="300px"></asp:TextBox>
         </p>
         <p>
             Password:</p>
         <p>
-            &nbsp;<asp:TextBox ID="passwordTextBox" TextMode="Password" runat="server"></asp:TextBox>
+            &nbsp;<asp:TextBox ID="passwordTextBox" TextMode="Password" runat="server" Height="35px" Width="293px"></asp:TextBox>
         </p>
         <p>
             <asp:Button ID="SubmitButton" runat="server" OnClick="SubmitButton_Click" Text="Login" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Large" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri" />
@@ -43,7 +40,7 @@
             <asp:Label ID="Label1" runat="server" Text="Invalid Username or Password" Visible="False"></asp:Label>
         </p>
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/CreateAccount.aspx">Don&#39;t Have an Account, Register Now</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/CreateAccount.aspx">Don&#39;t Have an Account? Register Now</asp:HyperLink>
         </p>
     </form>
 </body>

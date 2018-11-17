@@ -4,48 +4,57 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <title></title>
+        <style>
+        body {
+            background-color: bisque;
+            width:100vw;
+            height:100vw;
+            display:flex;
+            justify-content:center;
+            <!--align-items:center;-->
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
             <div class ="container"></div>
             <div class ="row">
-                <asp:LinkButton runat="server" CssClass="btn btn-default" ID="btnRecipePage" Text="Recipe Page" OnClick="btnRecipePage_Click" />
+                <asp:LinkButton runat="server" CssClass="btn btn-default" ID="btnRecipePage" Text="Recipe Page" OnClick="btnRecipePage_Click" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Medium" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri"  />
             </div>
+            <br />
             <asp:Label runat="server" Text="Name" />
-            &nbsp;<asp:TextBox runat="server" ID="nameTextBox" />
-            <asp:Label ID="NameLabel" runat="server" Text="Label"></asp:Label>
+            &nbsp;<br />
+            <asp:TextBox runat="server" ID="nameTextBox" />
+            <asp:Label ID="NameLabel" runat="server" Text="Label" Visible="False"></asp:Label>
         </div>
         <p>
             <asp:Label runat="server" Text="Ingredients" />
-            &nbsp;<asp:TextBox runat="server" ID="ingredientsTextBox" Height="21px" Width="154px" />
-            &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="IngredientButton" runat="server" OnClick="IngredientButton_Click" Text="Add Another Ingredient" />
             </p>
         <p>
-            <asp:Label ID="EnteredIngredientsLabel" runat="server" Text="Label"></asp:Label>
+            &nbsp;<asp:TextBox runat="server" ID="ingredientsTextBox" Height="21px" Width="154px" />
+            &nbsp;&nbsp;&nbsp;
+            <asp:Button ID="IngredientButton" runat="server" OnClick="IngredientButton_Click" Text="Add Another Ingredient" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Medium" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri" />
+            </p>
+        <p>
+            <asp:Label ID="EnteredIngredientsLabel" runat="server" Text="Label" Visible="False"></asp:Label>
             </p>
         <p>
             <asp:Label runat="server" Text="Instructions" />
+
+        </p>
+        <p>
             &nbsp;<asp:TextBox runat="server" ID="instructionsTextBox" Height="19px" Width="150px" />
 
         &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="InstructionButton" runat="server" OnClick="InstructionButton_Click" Text="Add Another Instruction" />
+            <asp:Button ID="InstructionButton" runat="server" OnClick="InstructionButton_Click" Text="Add Another Instruction" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Medium" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri" />
 
         </p>
-        <asp:Label ID="EnteredInstructionsLabel" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="EnteredInstructionsLabel" runat="server" Text="Label" Visible="False"></asp:Label>
         <br />
         <br />
-        <asp:Button ID="saveButton" runat="server" OnClick="saveButton_Click" Text="Save" />
+        <asp:Button ID="saveButton" runat="server" OnClick="saveButton_Click" Text="Save" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Medium" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri"  />
     </form>
 </body>
 </html>
