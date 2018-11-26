@@ -25,7 +25,7 @@
         <p>
             Email:</p>
         <p>
-            &nbsp;<asp:TextBox ID="emailTextBox" runat="server" Height="35px" Width="301px"></asp:TextBox>
+            &nbsp;<asp:TextBox ID="emailTextBox" runat="server" placeholder="email@email.com" Height="35px" Width="301px" ></asp:TextBox>
             <asp:Label ID="invalidEmailLabel" runat="server" ForeColor="Red" Text="Email is invalid." Visible="False"></asp:Label>
         </p>
         <p>
