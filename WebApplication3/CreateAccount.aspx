@@ -26,18 +26,23 @@
             Email:</p>
         <p>
             &nbsp;<asp:TextBox ID="emailTextBox" runat="server" Height="35px" Width="301px"></asp:TextBox>
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="invalidEmailLabel" runat="server" ForeColor="Red" Text="Email is invalid." Visible="False"></asp:Label>
         </p>
         <p>
             Username:</p>
         <p>
             &nbsp;<asp:TextBox ID="usernameTextBox" runat="server" Height="35px" Width="299px"></asp:TextBox>
-            <asp:Label ID="UsernameLabel" runat="server" Text="This Username is already taken." Visible="False"></asp:Label>
         </p>
         <p>
             Password:</p>
         <p>
-            <asp:TextBox ID="passwordTextBox" TextMode="Password" runat="server" Height="35px" Width="300px"></asp:TextBox>
+            <asp:TextBox ID="passwordTextBox" TextMode="Password" runat="server" Height="35px" Width="300px" OnTextChanged="passwordTextBox_TextChanged"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label ID="invalidPasswordLabel" runat="server" ForeColor="Red" Text="Entries can not be blank." Visible="False"></asp:Label>
+        </p>
+        <p>
+            <asp:Label ID="UsernameLabel" runat="server" Text="Email or Username is already registered." Visible="False" ForeColor="Red"></asp:Label>
         </p>
         <p>
             <asp:Button ID="createAccountButton" runat="server" OnClick="createAccountButton_Click" Text="Submit" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Large" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri"/>

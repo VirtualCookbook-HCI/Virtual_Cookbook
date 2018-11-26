@@ -40,13 +40,13 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.TextBox emailTextBox;
         
         /// <summary>
-        /// Label2 control.
+        /// invalidEmailLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label invalidEmailLabel;
         
         /// <summary>
         /// usernameTextBox control.
@@ -58,15 +58,6 @@ namespace WebApplication3 {
         protected global::System.Web.UI.WebControls.TextBox usernameTextBox;
         
         /// <summary>
-        /// UsernameLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UsernameLabel;
-        
-        /// <summary>
         /// passwordTextBox control.
         /// </summary>
         /// <remarks>
@@ -74,6 +65,24 @@ namespace WebApplication3 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox passwordTextBox;
+        
+        /// <summary>
+        /// invalidPasswordLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label invalidPasswordLabel;
+        
+        /// <summary>
+        /// UsernameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UsernameLabel;
         
         /// <summary>
         /// createAccountButton control.
