@@ -34,8 +34,13 @@ namespace WebApplication3
                 Validate();
                 if (IsValid)
                 {
-                    string username = usernameTextBox.Text;
-                    string password = passwordTextBox.Text;
+                    //string username = usernameTextBox.Text;
+                    //string password = passwordTextBox.Text;
+
+                    Session["Username"] = usernameTextBox.Text;
+                    Session["Password"] = passwordTextBox.Text;
+                    string username = Session["Username"].ToString();
+                    string password = Session["Password"].ToString();
 
                     dbcon.CookbookUsers.SqlQuery($"SELECT * FROM CookbookUsers WHERE Username = {username} AND Password = {password}");
 
@@ -44,15 +49,26 @@ namespace WebApplication3
                     DataTable dt = new DataTable();
                     sda.Fill(dt);
 
-                    if (dt.Rows[0][0].ToString() == "1")
+                    if (Session["Username"] == Session["Password"])
                     {
                         dbcon.SaveChanges();
                         Response.Redirect("Recipepage.aspx");
                     }
+                        
                     else
                     {
                         Label1.Visible = true;
                     }
+
+                    //if (dt.Rows[0][0].ToString() == "1")
+                    //{
+                    //    dbcon.SaveChanges();
+                    //    Response.Redirect("Recipepage.aspx");
+                    //}
+                    //else
+                    //{
+                    //    Label1.Visible = true;
+                    //}
                 }
             }
         }
