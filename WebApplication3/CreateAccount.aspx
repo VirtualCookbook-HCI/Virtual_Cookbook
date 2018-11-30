@@ -26,7 +26,7 @@
             Email:</p>
         <p>
             &nbsp;<asp:TextBox ID="emailTextBox" runat="server" placeholder="email@email.com" Height="35px" Width="301px" ></asp:TextBox>
-            <asp:Label ID="invalidEmailLabel" runat="server" ForeColor="Red" Text="Email is invalid." Visible="False"></asp:Label>
+            <asp:Label ID="invalidEmailLabel" runat="server" ForeColor="Red" Text="Email needs to be in form email@email.com" Visible="False"></asp:Label>
         </p>
         <p>
             Username:</p>
@@ -39,7 +39,7 @@
             <asp:TextBox ID="passwordTextBox" TextMode="Password" runat="server" Height="35px" Width="300px" OnTextChanged="passwordTextBox_TextChanged"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="invalidPasswordLabel" runat="server" ForeColor="Red" Text="Entries can not be blank." Visible="False"></asp:Label>
+            <asp:Label ID="invalidPasswordLabel" runat="server" ForeColor="Red" Text="Entries cannot be blank." Visible="False"></asp:Label>
         </p>
         <p>
             <asp:Label ID="UsernameLabel" runat="server" Text="Email or Username is already registered." Visible="False" ForeColor="Red"></asp:Label>

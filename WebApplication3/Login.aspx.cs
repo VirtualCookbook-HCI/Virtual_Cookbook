@@ -19,7 +19,7 @@ namespace WebApplication3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Label2.Font.Name = "verdana";
         }
 
         protected void SubmitButton_Click(object sender, EventArgs e)

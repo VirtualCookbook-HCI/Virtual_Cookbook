@@ -72,7 +72,7 @@ namespace WebApplication3
                         RecipeName = recipeName,
                         Ingredients = ingredients,
                         Instructions = instructions,
-                        UserId = -1311229662 // hardcoded so that it matches my user id
+                        UserId = (int)Session["UserID"] // hardcoded so that it matches my user id
                     };
 
                     dbcon.CookbookRecipes.Add(newRecipe);

@@ -14,22 +14,26 @@
             justify-content:center;
             <!--align-items:center;-->
         }
+        .auto-style1 {
+            text-align: justify;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <p>
+        <p class="auto-style1">
             <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="Large" Text="Login"></asp:Label>
         </p>
 
         <p>
-            Username:
+            <asp:Label ID="Label3" runat="server" Text="Username:"></asp:Label>
             </p>
         <p>
             <asp:TextBox ID="usernameTextBox" runat="server" Height="35px" Width="300px"></asp:TextBox>
         </p>
         <p>
-            Password:</p>
+            <asp:Label ID="Label4" runat="server" Text="Password:"></asp:Label>
+        </p>
         <p>
             &nbsp;<asp:TextBox ID="passwordTextBox" TextMode="Password" runat="server" Height="35px" Width="293px"></asp:TextBox>
         </p>
