@@ -7,6 +7,10 @@
     <title></title>
    <style>
        
+       .auto-style1 {
+           text-align: center;
+       }
+       
     </style>
 </head>
 <body>
@@ -16,10 +20,11 @@
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" Height="40px" Width="88px" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Large" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri" />
         </div>
         <p>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource" Height="245px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="407px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+            <div class="auto-style1">
+&nbsp;<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource" Height="245px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="407px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
-                    <asp:BoundField DataField="RecipeName" HeaderText="RecipeName" SortExpression="RecipeName" />
+                    <asp:BoundField DataField="RecipeName" HeaderText="Recipe" SortExpression="RecipeName" />
                     <asp:CommandField ShowDeleteButton="True" />
                 </Columns>
                 <FooterStyle BackColor="White" ForeColor="#000066" />
@@ -32,6 +37,7 @@
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#00547E" />
             </asp:GridView>
+            </div>
             <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [RecipeName] FROM [CookbookRecipes] WHERE ([UserId] = @UserId)">
                 <SelectParameters>
                     <asp:SessionParameter Name="UserId" SessionField="UserId" Type="Int32" />
