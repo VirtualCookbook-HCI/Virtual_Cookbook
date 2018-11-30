@@ -18,10 +18,9 @@
         <p>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource" Height="245px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="407px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
                 <Columns>
-                    <asp:CommandField ShowSelectButton="True" SelectText="Details" >
-                    <ControlStyle Width="20px" />
-                    </asp:CommandField>
-                    <asp:BoundField DataField="RecipeName" HeaderText="Recipe Name" SortExpression="RecipeName" />
+                    <asp:CommandField ShowSelectButton="True" />
+                    <asp:BoundField DataField="RecipeName" HeaderText="RecipeName" SortExpression="RecipeName" />
+                    <asp:CommandField ShowDeleteButton="True" />
                 </Columns>
                 <FooterStyle BackColor="White" ForeColor="#000066" />
                 <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
@@ -33,9 +32,16 @@
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#00547E" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [RecipeName], [Ingredients], [Instructions] FROM [CookbookRecipes] ORDER BY [RecipeName]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" SelectCommand="SELECT [RecipeName] FROM [CookbookRecipes] WHERE ([UserId] = @UserId)">
+                <SelectParameters>
+                    <asp:SessionParameter Name="UserId" SessionField="UserId" Type="Int32" />
+                </SelectParameters>
+            </asp:SqlDataSource>
         </p>
-        <asp:GridView ID="GridView2" runat="server">
+        <asp:GridView ID="GridView2" runat="server" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+            <Columns>
+                <asp:CommandField ShowEditButton="True" />
+            </Columns>
         </asp:GridView>
     </form>
 </body>

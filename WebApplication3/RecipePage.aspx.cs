@@ -15,7 +15,7 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            //TextBox1.Text = Session["UserId"].ToString();
         }
         protected void AddRecipe_Click(object sender, EventArgs e)
         {
@@ -64,6 +64,11 @@ namespace WebApplication3
         protected void Button2_Click(object sender, EventArgs e)
         {
             Response.Redirect("NewRecipe.aspx");
+        }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

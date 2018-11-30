@@ -19,7 +19,7 @@ namespace WebApplication3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void SubmitButton_Click(object sender, EventArgs e)
@@ -34,23 +34,36 @@ namespace WebApplication3
                 Validate();
                 if (IsValid)
                 {
-                    //string username = usernameTextBox.Text;
-                    //string password = passwordTextBox.Text;
+                    string username = usernameTextBox.Text;
+                    string password = passwordTextBox.Text;
 
-                    Session["Username"] = usernameTextBox.Text;
-                    Session["Password"] = passwordTextBox.Text;
-                    string username = Session["Username"].ToString();
-                    string password = Session["Password"].ToString();
-
+                    
+    
                     dbcon.CookbookUsers.SqlQuery($"SELECT * FROM CookbookUsers WHERE Username = {username} AND Password = {password}");
+                    //Session["UserID"] = dbcon.CookbookUsers.Sql
 
                     SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+
+                    //SDA contains how many usernames and passwords are the same.
                     SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From CookbookUsers where Username = '" + usernameTextBox.Text + "' and Password = '" + passwordTextBox.Text + "'", con);
+                   
+                    //usertable contains a row of information from cookbook users
+                    SqlDataAdapter usertableadapter = new SqlDataAdapter("Select * From CookbookUsers where Username = '" + usernameTextBox.Text + "' and Password = '" + passwordTextBox.Text + "'", con);
+                    
+                    //puts the whole row into this table
+                    DataTable userTable = new DataTable();
                     DataTable dt = new DataTable();
+                    usertableadapter.Fill(userTable);
                     sda.Fill(dt);
 
-                    if (Session["Username"] == Session["Password"])
+                    if (dt.Rows[0][0].ToString() == "1" )
                     {
+               
+                        Session["Username"] = usernameTextBox.Text;
+                        Session["Password"] = passwordTextBox.Text;
+                        Session["UserID"] = userTable.Rows[0][0]; //FINALLYYYYY WORKS
+
+                        
                         dbcon.SaveChanges();
                         Response.Redirect("Recipepage.aspx");
                     }
