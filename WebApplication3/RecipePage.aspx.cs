@@ -72,16 +72,15 @@ namespace WebApplication3
             Session["recipeId"] = dt1.Rows[0][0];
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("NewRecipe.aspx");
-        }
 
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
+<<<<<<< HEAD
+      
+=======
         //protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         //{
         //    string recipeName = "";
@@ -100,5 +99,6 @@ namespace WebApplication3
         {
             Response.Redirect("EditRecipe.aspx");
         }
+>>>>>>> master
     }
 }

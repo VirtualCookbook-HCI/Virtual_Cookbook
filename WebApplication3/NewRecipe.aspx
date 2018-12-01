@@ -6,26 +6,49 @@
 <head runat="server">
     <title></title>
         <style>
-        body {
-            background-color: bisque;
-            width:100vw;
-            height:100vw;
-            display:flex;
-            justify-content:center;
-            <!--align-items:center;-->
-        }
+         ul{
+           list-style-type: none;
+           margin: 0;
+           padding: 0;
+           overflow: hidden;
+           background-color: #333;
+       }
+       li{
+           float: left;
+       }
+
+       li a{
+           display:block;
+           color: white;
+           text-align: center;
+           padding: 14px 16px;
+           text-decoration: none;
+       }
+
+       li a:hover{
+           background-color: #111;
+       }
     </style>
 </head>
 <body>
+    <ul>
+        <li><a class="active" href= "RecipePage.aspx">Recipe Page</a></li>
+        <li><a href="NewRecipe.aspx">New Recipe</a></li>
+        <li><a href="Login.aspx">Logout</a></li>
+
+    </ul>
     <form id="form1" runat="server">
         <div>
             <div class ="container"></div>
             <div class ="row">
+<<<<<<< HEAD
+=======
                 <h2>
                 <asp:LinkButton runat="server" CssClass="btn btn-default" ID="btnRecipePage" Text="Recipe Page" OnClick="btnRecipePage_Click" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Large" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri"  />
                     <br />
                     <br />
                     Add New Recipe:</h2>
+>>>>>>> master
             </div>
             <br />
             Recipe <asp:Label runat="server" Text="Name" Font-Size="Large" />
