@@ -41,14 +41,11 @@
         <div>
             <div class ="container"></div>
             <div class ="row">
-<<<<<<< HEAD
-=======
-                <h2>
+                <%--<h2>Add New Recipe:</h2>
                 <asp:LinkButton runat="server" CssClass="btn btn-default" ID="btnRecipePage" Text="Recipe Page" OnClick="btnRecipePage_Click" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Large" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri"  />
                     <br />
-                    <br />
-                    Add New Recipe:</h2>
->>>>>>> master
+                    <br />--%>
+                    
             </div>
             <br />
             Recipe <asp:Label runat="server" Text="Name" Font-Size="Large" />
