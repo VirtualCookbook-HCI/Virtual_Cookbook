@@ -78,9 +78,7 @@ namespace WebApplication3
 
         }
 
-<<<<<<< HEAD
       
-=======
         //protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         //{
         //    string recipeName = "";
@@ -99,6 +97,5 @@ namespace WebApplication3
         {
             Response.Redirect("EditRecipe.aspx");
         }
->>>>>>> master
     }
 }
