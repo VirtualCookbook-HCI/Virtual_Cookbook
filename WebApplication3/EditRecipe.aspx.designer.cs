@@ -10,7 +10,7 @@
 namespace WebApplication3 {
     
     
-    public partial class CreateAccount {
+    public partial class EditRecipe {
         
         /// <summary>
         /// form1 control.
@@ -22,93 +22,93 @@ namespace WebApplication3 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Label1 control.
+        /// btnRecipePage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.LinkButton btnRecipePage;
         
         /// <summary>
-        /// emailTextBox control.
+        /// recipeNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emailTextBox;
+        protected global::System.Web.UI.WebControls.TextBox recipeNameTextBox;
         
         /// <summary>
-        /// invalidEmailLabel control.
+        /// NameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label invalidEmailLabel;
+        protected global::System.Web.UI.WebControls.Label NameLabel;
         
         /// <summary>
-        /// usernameTextBox control.
+        /// ingredientsTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox usernameTextBox;
+        protected global::System.Web.UI.WebControls.TextBox ingredientsTextBox;
         
         /// <summary>
-        /// passwordTextBox control.
+        /// IngredientButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox passwordTextBox;
+        protected global::System.Web.UI.WebControls.Button IngredientButton;
         
         /// <summary>
-        /// passwordLengthLabel control.
+        /// ingredientsLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label passwordLengthLabel;
+        protected global::System.Web.UI.WebControls.Label ingredientsLabel;
         
         /// <summary>
-        /// invalidPasswordLabel control.
+        /// instructionsTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label invalidPasswordLabel;
+        protected global::System.Web.UI.WebControls.TextBox instructionsTextBox;
         
         /// <summary>
-        /// UsernameLabel control.
+        /// InstructionButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UsernameLabel;
+        protected global::System.Web.UI.WebControls.Button InstructionButton;
         
         /// <summary>
-        /// createAccountButton control.
+        /// instructionsLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button createAccountButton;
+        protected global::System.Web.UI.WebControls.Label instructionsLabel;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// saveButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.Button saveButton;
     }
 }

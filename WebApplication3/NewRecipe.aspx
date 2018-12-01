@@ -41,17 +41,25 @@
         <div>
             <div class ="container"></div>
             <div class ="row">
+<<<<<<< HEAD
+=======
+                <h2>
+                <asp:LinkButton runat="server" CssClass="btn btn-default" ID="btnRecipePage" Text="Recipe Page" OnClick="btnRecipePage_Click" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Large" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri"  />
+                    <br />
+                    <br />
+                    Add New Recipe:</h2>
+>>>>>>> master
             </div>
             <br />
-            <asp:Label runat="server" Text="Name" Font-Size="Large" />
-            &nbsp;<br />
+            Recipe <asp:Label runat="server" Text="Name" Font-Size="Large" />
+            :&nbsp;<br />
             <br />
             <asp:TextBox runat="server" ID="nameTextBox" Height="35px" Width="301px" />
             <asp:Label ID="NameLabel" runat="server" Text="Label" Visible="False"></asp:Label>
         </div>
         <p>
             <asp:Label runat="server" Text="Ingredients" Font-Size="Large" />
-            </p>
+            :</p>
         <p>
             &nbsp;<asp:TextBox runat="server" ID="ingredientsTextBox" Height="35px" Width="300px" />
             &nbsp;&nbsp;&nbsp;
@@ -63,7 +71,7 @@
         <p>
             <asp:Label runat="server" Text="Instructions" Font-Size="Large" />
 
-        </p>
+            :</p>
         <p>
             &nbsp;<asp:TextBox runat="server" ID="instructionsTextBox" Height="35px" Width="300px" />
 

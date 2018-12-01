@@ -23,20 +23,25 @@
             <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Large" Text="Create Account"></asp:Label>
         </p>
         <p>
+            * required field</p>
+        <p>
             Email:</p>
         <p>
             &nbsp;<asp:TextBox ID="emailTextBox" runat="server" placeholder="email@email.com" Height="35px" Width="301px" ></asp:TextBox>
+            *
             <asp:Label ID="invalidEmailLabel" runat="server" ForeColor="Red" Text="Email needs to be in form email@email.com" Visible="False"></asp:Label>
         </p>
         <p>
             Username:</p>
         <p>
             &nbsp;<asp:TextBox ID="usernameTextBox" runat="server" Height="35px" Width="299px"></asp:TextBox>
-        </p>
+        &nbsp;*</p>
         <p>
-            Password:</p>
+            Password (at least 8 characters):</p>
         <p>
             <asp:TextBox ID="passwordTextBox" TextMode="Password" runat="server" Height="35px" Width="300px" OnTextChanged="passwordTextBox_TextChanged"></asp:TextBox>
+            *
+            <asp:Label ID="passwordLengthLabel" runat="server" ForeColor="Red" Text="Password needs to be at least 8 characters in length" Visible="False"></asp:Label>
         </p>
         <p>
             <asp:Label ID="invalidPasswordLabel" runat="server" ForeColor="Red" Text="Entries cannot be blank." Visible="False"></asp:Label>

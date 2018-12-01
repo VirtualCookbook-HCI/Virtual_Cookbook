@@ -33,12 +33,7 @@ namespace WebApplication3
             DataTable dt = new DataTable();
             sda.Fill(dt);
 
-            if (dt.Rows[0][0].ToString() == "1")
-            {
-                //UsernameLabel.Visible = true;
-
-            }
-            else
+            if (!(dt.Rows[0][0].ToString() == "1"))
             {
                 string recipeName = "";
 
@@ -68,7 +63,7 @@ namespace WebApplication3
                         RecipeName = recipeName,
                         Ingredients = ingredients,
                         Instructions = instructions,
-                        UserId = (int)Session["UserID"] // hardcoded so that it matches my user id
+                        UserId = (int)Session["UserID"]
                     };
 
                     dbcon.CookbookRecipes.Add(newRecipe);
@@ -78,16 +73,17 @@ namespace WebApplication3
             }
         }
 
-
+        /* User wants to add additonal ingredients */
         protected void IngredientButton_Click(object sender, EventArgs e)
         {
             string ingredient = ingredientsTextBox.Text;
             ingredients += ingredient + ", ";
-            EnteredIngredientsLabel.Visible = true;
-            EnteredIngredientsLabel.Text = ingredients;
-            ingredientsTextBox.Text = "";
+            EnteredIngredientsLabel.Visible = true; 
+            EnteredIngredientsLabel.Text = ingredients; // show user the ingredients they have already entered
+            ingredientsTextBox.Text = ""; // reset the value of the text box so that it's empty
         }
 
+        /* User wants to add additonal instructions */
         protected void InstructionButton_Click(object sender, EventArgs e)
         {
             string instruction = instructionsTextBox.Text;
