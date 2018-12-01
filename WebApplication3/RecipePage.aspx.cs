@@ -42,13 +42,14 @@ namespace WebApplication3
             {
                 if (row.RowIndex == GridView1.SelectedIndex)
                 {
-                    recipeName = "'" + row.Cells[1].Text + "'";
+                    recipeName = row.Cells[1].Text;
+                    Session["recipeName"] = recipeName;
                 }
             }
 
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
 
-            SqlDataAdapter sda = new SqlDataAdapter("Select RecipeName, Ingredients, Instructions From CookbookRecipes where RecipeName = " + recipeName, con);
+            SqlDataAdapter sda = new SqlDataAdapter("Select RecipeName, Ingredients, Instructions From CookbookRecipes where RecipeName = '" + recipeName + "'", con);
 
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -59,6 +60,16 @@ namespace WebApplication3
                 // can use this foreach to design the gridview
                 row.BackColor = Color.White;
             }
+
+            // Store sessions of ingredients and instructions if the user wants to edit
+            Session["ingredients"] = dt.Rows[0][1].ToString();
+            Session["instructions"] = dt.Rows[0][2].ToString();
+
+            // Store a session of the recipe id if the user wants to edit
+            SqlDataAdapter sda1 = new SqlDataAdapter("Select RecipeId From CookbookRecipes where RecipeName = '" + recipeName + "'", con);
+            DataTable dt1 = new DataTable();
+            sda1.Fill(dt1);
+            Session["recipeId"] = dt1.Rows[0][0];
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -69,6 +80,25 @@ namespace WebApplication3
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        //protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        //{
+        //    string recipeName = "";
+        //    foreach (GridViewRow row in GridView1.Rows)
+        //    {
+        //        if (row.RowIndex == GridView1.SelectedIndex)
+        //        {
+        //            recipeName = "'" + row.Cells[1].Text + "'";
+                    
+        //        }
+        //    }
+
+        //}
+
+        protected void GridView2_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            Response.Redirect("EditRecipe.aspx");
         }
     }
 }

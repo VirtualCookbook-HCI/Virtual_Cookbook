@@ -72,6 +72,9 @@ namespace WebApplication3
                     //verifies password is not blank
                     if (passwordTextBox.Text != "")
                     {
+                        // verifies passwrd is at least 8 characters in length
+                        if(!(passwordTextBox.Text.Length < 8))
+                        {
                             string username = usernameTextBox.Text;
                             string password = passwordTextBox.Text;
 
@@ -89,8 +92,13 @@ namespace WebApplication3
                             dbcon.CookbookUsers.Add(newUser);
                             dbcon.SaveChanges();
                             Response.Redirect("Recipepage.aspx");
-
-                     
+                        }
+                        else
+                        {
+                            //error message if password is left blank
+                            passwordLengthLabel.Visible = true;
+                        }
+                           
                     } else
                     {
                         //error message if password is left blank

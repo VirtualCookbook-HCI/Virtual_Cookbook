@@ -32,7 +32,7 @@
                 <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
                 <RowStyle ForeColor="#000066" />
                 <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <%--<SortedAscendingCellStyle BackColor="#F1F1F1" />--%>
                 <SortedAscendingHeaderStyle BackColor="#007DBB" />
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#00547E" />
@@ -43,8 +43,8 @@
                     <asp:SessionParameter Name="UserId" SessionField="UserId" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
-        </p>
-        <asp:GridView ID="GridView2" runat="server" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+        &nbsp;</p>
+        <asp:GridView ID="GridView2" runat="server" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" OnRowEditing ="GridView2_RowEditing">
             <Columns>
                 <asp:CommandField ShowEditButton="True" />
             </Columns>
