@@ -72,16 +72,6 @@ namespace WebApplication3
                     {
                         Label1.Visible = true;
                     }
-
-                    //if (dt.Rows[0][0].ToString() == "1")
-                    //{
-                    //    dbcon.SaveChanges();
-                    //    Response.Redirect("Recipepage.aspx");
-                    //}
-                    //else
-                    //{
-                    //    Label1.Visible = true;
-                    //}
                 }
             }
         }
