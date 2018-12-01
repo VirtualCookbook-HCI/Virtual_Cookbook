@@ -6,21 +6,28 @@
 <head runat="server">
     <title></title>
    <style>
-       
-       .auto-style1 {
-           text-align: center;
-       }
+        body {
+            background-color:oldlace;
+            width:100vw;
+            height:100vw;
+            display:flex;
+            justify-content:center;
+            <!--align-items:center;-->
+        }
+        
        
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" Height="40px" Width="88px" BackColor="#999999" BorderStyle="Outset" Font-Bold="True" Font-Size="Large" ForeColor="White" BorderColor="#999999" Font-Names="Calibri" />
+            <br />
+            <br />
             <asp:Button ID="newRecipeButton" runat="server" Height="42px" OnClick="Button2_Click" Text="New Recipe" Width="143px" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Large" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri" />
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" Height="40px" Width="88px" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Large" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri" />
         </div>
         <p>
-            <div class="auto-style1">
+            
 &nbsp;<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource" Height="245px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="407px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />

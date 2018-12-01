@@ -61,7 +61,7 @@ namespace WebApplication3
                
                         Session["Username"] = usernameTextBox.Text;
                         Session["Password"] = passwordTextBox.Text;
-                        Session["UserID"] = userTable.Rows[0][0]; //FINALLYYYYY WORKS
+                        Session["UserID"] = userTable.Rows[0][0]; 
 
                         
                         dbcon.SaveChanges();
@@ -70,6 +70,7 @@ namespace WebApplication3
                         
                     else
                     {
+                        /* Shows the invalid username or password label */
                         Label1.Visible = true;
                     }
                 }
