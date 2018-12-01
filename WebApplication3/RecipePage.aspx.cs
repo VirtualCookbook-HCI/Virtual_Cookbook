@@ -79,8 +79,18 @@ namespace WebApplication3
         }
 
       
-        //protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        //{
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            /*SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+            int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value.ToString());
+            con.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM CookbookUsers WHERE RecipeId='" + id + "'", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@RecipeId", id);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            GridView1.DataBind();
+            
         //    string recipeName = "";
         //    foreach (GridViewRow row in GridView1.Rows)
         //    {
@@ -89,9 +99,9 @@ namespace WebApplication3
         //            recipeName = "'" + row.Cells[1].Text + "'";
                     
         //        }
-        //    }
+        //    } */
 
-        //}
+        }
 
         protected void GridView2_RowEditing(object sender, GridViewEditEventArgs e)
         {

@@ -20,12 +20,19 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Image ID="Image1" runat="server" Height="205px" ImageUrl="~/Content/logo.png" Width="363px" />
+            <br />
             <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Franklin Gothic Demi Cond" Font-Size="XX-Large" ForeColor="#33CCCC" Text="Welcome to Virtual Cookbook"></asp:Label>
             <br />
             <br />
-            <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="Large" ForeColor="White" Text="Please login or create an account to continue"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="Large" ForeColor="White" Text="This is an online cookbook where you"></asp:Label>
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Size="Large" ForeColor="White" Text="can add and save your favorite recipes."></asp:Label>
             <br />
             <br />
+            &nbsp;&nbsp;
             <asp:Button ID="loginButton" runat="server" OnClick="loginButton_Click" Text="Login" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="X-Large" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri" Width="179px"/>
 &nbsp;
             <asp:Button ID="registerButton" runat="server" OnClick="registerButton_Click" Text="Register" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="X-Large" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri" Width="179px" />
