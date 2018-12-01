@@ -21,10 +21,6 @@ namespace WebApplication3
 
         }
 
-        protected void btnRecipePage_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("RecipePage.aspx");
-        }
 
         protected void saveButton_Click(object sender, EventArgs e)
         {

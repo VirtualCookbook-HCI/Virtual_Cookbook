@@ -61,14 +61,12 @@ namespace WebApplication3
             }
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("NewRecipe.aspx");
-        }
 
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+      
     }
 }
