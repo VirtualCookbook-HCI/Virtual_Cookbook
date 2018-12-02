@@ -20,7 +20,7 @@ namespace WebApplication3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Label1.Font.Name = "verdana";
         }
 
         protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
