@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-//using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
@@ -21,38 +20,39 @@ namespace WebApplication3
 
         }
 
-
+        /* For when user wants to save a recipe */
         protected void saveButton_Click(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
 
             CookbookDatabaseEntities dbcon = new CookbookDatabaseEntities();
-            //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\camrynroadley\Virtual_Cookbook\WebApplication3\App_Data\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFrameworkata Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Owner\Desktop\cookbook1\Virtual_Cookbook\WebApplication3\App_Data\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\CookbookDatabase.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From CookbookRecipes where RecipeName = '" + nameTextBox.Text + "' and Ingredients = '" + ingredientsTextBox.Text + "'", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
 
+            // save the recipe as long as it doesn't already exist in the database
             if (!(dt.Rows[0][0].ToString() == "1"))
             {
                 string recipeName = "";
 
-                // Get remaining ingredients and intructions
+                // Get remaining ingredients from the text box
                 if(ingredientsTextBox.Text != "")
                 {
                     ingredients += ingredientsTextBox.Text;
                 }
 
+                // Get remaining instructions from the text box
                 if (instructionsTextBox.Text != "")
                 {
                     instructions += instructionsTextBox.Text;
                 }
 
-                // Make sure there is a recipe name
+                // If the user doesn't enter a recipe name
                 if (nameTextBox.Text.Equals(""))
                 {
                     NameLabel.Text = "*Enter a recipe name";
-
+                    NameLabel.Visible = true;
                 }
                 else
                 {
@@ -66,6 +66,7 @@ namespace WebApplication3
                         UserId = (int)Session["UserID"]
                     };
 
+                    // add new recipe to database
                     dbcon.CookbookRecipes.Add(newRecipe);
                     dbcon.SaveChanges();
                     Response.Redirect("Recipepage.aspx");
@@ -89,8 +90,8 @@ namespace WebApplication3
             string instruction = instructionsTextBox.Text;
             instructions += instruction + ", ";
             EnteredInstructionsLabel.Visible = true;
-            EnteredInstructionsLabel.Text = instructions;
-            instructionsTextBox.Text = "";
+            EnteredInstructionsLabel.Text = instructions; // show user the instructions they have already entered
+            instructionsTextBox.Text = ""; // reset the value of the text box so that it's empty
         }
     }
 }

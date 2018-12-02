@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-//using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
@@ -22,14 +21,20 @@ namespace WebApplication3
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // only set the values when count = 0 (it's the first page load)
             if(count == 0)
             {
+                // set the values of the text boxes to be the values that already existed for that recipe
                 recipeNameTextBox.Text = Session["recipeName"].ToString();
                 ingredientsLabel.Text = Session["ingredients"].ToString();
                 ingredients += Session["ingredients"].ToString();
                 instructionsLabel.Text = Session["instructions"].ToString();
                 instructions += Session["instructions"].ToString();
                 recipeId = (int)Session["recipeId"];
+
+                // show existing ingredients and instructions
+                ingredientsLabel.Visible = true;
+                instructionsLabel.Visible = true;
 
                 // make an original recipe, this will be deleted and replaced by new recipe with the same id
                 originalRecipe = new CookbookRecipe
@@ -42,19 +47,8 @@ namespace WebApplication3
                 };
                 count++;
             }
-            
         }
-
-        protected void recipeNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnRecipePage_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("RecipePage.aspx");
-        }
-
+        
         protected void saveButton_Click(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
@@ -64,25 +58,26 @@ namespace WebApplication3
             SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From CookbookRecipes where RecipeName = '" + recipeName + "'", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-
-      
+            
             if ((dt.Rows[0][0].ToString() == "0") || (dt.Rows[0][0].ToString() == "1"))
             {
-                // Get remaining ingredients and intructions
+                // Get remaining ingredients from text box
                 if (ingredientsTextBox.Text != "")
                 {
                     ingredients += ingredientsTextBox.Text;
                 }
 
+                // Get remaining instructions from text box
                 if (instructionsTextBox.Text != "")
                 {
                     instructions += instructionsTextBox.Text;
                 }
 
-                // Make sure there is a recipe name
+                // If the user doesn't enter a recipe name
                 if (recipeNameTextBox.Text.Equals(""))
                 {
                     NameLabel.Text = "*Enter a recipe name";
+                    NameLabel.Visible = true;
 
                 }
                 else
@@ -110,6 +105,7 @@ namespace WebApplication3
             }
         }
 
+        /* User wants to add additonal ingredients */
         protected void IngredientButton_Click(object sender, EventArgs e)
         {
             string ingredient = ingredientsTextBox.Text;
@@ -119,6 +115,7 @@ namespace WebApplication3
             ingredientsTextBox.Text = ""; // reset the value of the text box so that it's empty
         }
 
+        /* User wants to add additonal instructions */
         protected void InstructionButton_Click(object sender, EventArgs e)
         {
             string instruction = instructionsTextBox.Text;

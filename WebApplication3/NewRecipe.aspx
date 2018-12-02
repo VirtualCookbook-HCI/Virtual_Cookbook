@@ -28,6 +28,15 @@
        li a:hover{
            background-color: #111;
        }
+       
+       body {
+            background-color: azure;
+            width:100vw;
+            height:100vw;
+            justify-content:center;
+            <!--align-items:center;-->
+        }
+        
     </style>
 </head>
 <body>
@@ -39,15 +48,20 @@
     </ul>
     <form id="form1" runat="server">
         <div>
-            <div class ="container"></div>
+            <div class ="container">
+                <p>
+                </p>
+            </div>
             <div class ="row">
+                <h2>
                 <%--<h2>Add New Recipe:</h2>
                 <asp:LinkButton runat="server" CssClass="btn btn-default" ID="btnRecipePage" Text="Recipe Page" OnClick="btnRecipePage_Click" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Large" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri"  />
                     <br />
                     <br />--%>
                     
+                    Add New Recipe:</h2>
+                    
             </div>
-            <br />
             Recipe <asp:Label runat="server" Text="Name" Font-Size="Large" />
             :&nbsp;<br />
             <br />

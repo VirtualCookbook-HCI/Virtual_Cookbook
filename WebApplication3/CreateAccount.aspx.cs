@@ -14,20 +14,14 @@ namespace WebApplication3
 {
     public partial class CreateAccount : System.Web.UI.Page
     {
-
-
-        
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Font.Name = "verdana";
         }
 
         protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
         {
 
         }
-
 
         protected void createAccountButton_Click(object sender, EventArgs e)
         {

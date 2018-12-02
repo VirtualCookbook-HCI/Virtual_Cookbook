@@ -28,41 +28,40 @@
            text-align: center;
            padding: 14px 16px;
            text-decoration: none;
+           justify-content:flex-start;
        }
 
        li a:hover{
            background-color: #111;
        }
+
        body {
             background-color: azure;
             width:100vw;
             height:100vw;
-            display:flex;
             justify-content:center;
             <!--align-items:center;-->
         }
+
         .auto-style1 {
             text-align: justify;
         }
-        .auto-style2 {
-            text-align: justify;
-        }
-       
+               
     </style>
 </head>
 <body>
-    <ul>
+        <ul>
         <li><a class="active" href= "RecipePage.aspx">Recipe Page</a></li>
         <li><a href="NewRecipe.aspx">New Recipe</a></li>
         <li><a href="Login.aspx">Logout</a></li>
 
     </ul>
-    <form id="form1" runat="server">
-        <div>
+        <form id="form1" runat="server">
+            <div>
+                <h2>Your Recipes:</h2>
         </div>
-        <p>
             <div class="auto-style1">
-&nbsp;<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource" Height="245px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDeleting="GridView1_RowDeleting" OnRowCommand="GridView1_RowCommand" Width="407px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" >
+&nbsp;<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource" Height="245px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDeleting="GridView1_RowDeleting" OnRowCommand="GridView1_RowCommand" Width="407px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" >
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="RecipeName" HeaderText="Your Recipes" SortExpression="RecipeName" />
@@ -86,9 +85,10 @@
                     <asp:SessionParameter Name="UserId" SessionField="UserId" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
-        &nbsp;<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        </p>
-        <asp:GridView ID="GridView2" runat="server" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" OnRowEditing ="GridView2_RowEditing">
+        &nbsp;<h2>
+                <asp:Label ID="selectLabel" runat="server" Text="Selected Recipe:" Visible="False"></asp:Label>
+            </h2>
+        <asp:GridView ID="GridView2" runat="server" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" OnRowEditing ="GridView2_RowEditing" BorderStyle="Solid" BackColor="White" BorderColor="#CCCCCC" BorderWidth="1px">
             <Columns>
                 <asp:CommandField ShowEditButton="True" />
             </Columns>
