@@ -33,6 +33,20 @@
        li a:hover{
            background-color: #111;
        }
+       body {
+            background-color: azure;
+            width:100vw;
+            height:100vw;
+            display:flex;
+            justify-content:center;
+            <!--align-items:center;-->
+        }
+        .auto-style1 {
+            text-align: justify;
+        }
+        .auto-style2 {
+            text-align: justify;
+        }
        
     </style>
 </head>
@@ -48,11 +62,11 @@
         </div>
         <p>
             <div class="auto-style1">
-&nbsp;<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource" Height="245px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDeleting="GridView1_RowDeleting" Width="407px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" >
+&nbsp;<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource" Height="245px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDeleting="GridView1_RowDeleting" OnRowCommand="GridView1_RowCommand" Width="407px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" >
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="RecipeName" HeaderText="Your Recipes" SortExpression="RecipeName" />
-                    <asp:CommandField ShowDeleteButton="True" />
+                    <asp:ButtonField ButtonType="Button"  Text="Delete" HeaderText=""  CommandName="DeleteRow" />
                 </Columns>
                 <FooterStyle BackColor="White" ForeColor="#000066" />
                 <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
@@ -72,7 +86,8 @@
                     <asp:SessionParameter Name="UserId" SessionField="UserId" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
-        &nbsp;</p>
+        &nbsp;<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        </p>
         <asp:GridView ID="GridView2" runat="server" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" OnRowEditing ="GridView2_RowEditing">
             <Columns>
                 <asp:CommandField ShowEditButton="True" />
