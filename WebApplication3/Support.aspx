@@ -37,6 +37,13 @@
             <!--align-items:center;-->
         }
         
+            .auto-style1 {
+                font-size: large;
+            }
+            .auto-style2 {
+                font-size: medium;
+            }
+        
     </style>
 </head>
 <body>
@@ -62,9 +69,10 @@
             <p>
                 <asp:Label ID="Label3" runat="server" Text="Thank you for your feedback." Font-Size="Large"></asp:Label>
             </p>
-            <p>
-                <asp:Label ID="Label2" runat="server" Text="Comments" Font-Size="Large"></asp:Label>
-            </p>
+            <p class="auto-style1">
+                &nbsp;</p>
+            <p class="auto-style2">
+                Your Feedback:</p>
             <p>
                 <asp:ListBox ID="ListBox1" runat="server" Height="183px" Width="564px">
                     <asp:ListItem></asp:ListItem>
