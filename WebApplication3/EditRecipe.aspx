@@ -58,6 +58,7 @@
     <ul>
         <li><a class="active" href= "RecipePage.aspx">Recipe Page</a></li>
         <li><a href="NewRecipe.aspx">New Recipe</a></li>
+        <li><a href="Support.aspx">Feedback</a></li>
         <li><a href="Login.aspx">Logout</a></li>
     </ul>
         <form id="form1" runat="server">

@@ -17,6 +17,9 @@
         .auto-style1 {
             text-align: justify;
         }
+        p1{
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -40,9 +43,9 @@
         <p>
             <asp:Button ID="SubmitButton" runat="server" OnClick="SubmitButton_Click" Text="Login" BackColor="#66CCFF" BorderStyle="Outset" Font-Bold="True" Font-Size="Large" ForeColor="White" BorderColor="#66CCFF" Font-Names="Calibri" />
         </p>
-        <p>
+        <p1>
             <asp:Label ID="Label1" runat="server" Text="Invalid Username or Password" Visible="False"></asp:Label>
-        </p>
+        </p1>
         <p>
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/CreateAccount.aspx">Don&#39;t Have an Account? Register Now</asp:HyperLink>
         </p>
